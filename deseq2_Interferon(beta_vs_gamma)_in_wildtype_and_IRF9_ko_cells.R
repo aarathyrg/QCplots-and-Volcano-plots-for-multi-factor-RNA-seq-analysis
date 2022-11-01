@@ -79,7 +79,7 @@ colors <- colorRampPalette( rev(brewer.pal(9, "Blues")) )(255)
 #hierarchical clustering
 #alternative kmeans
 hc <- hclust(sampleDists)
-png("qc-heatmap-samples_blue_hc.png", w=1000, h=1000, pointsize=20)
+png("qc-sample_correlation.png", w=1000, h=1000, pointsize=20)
 heatmap.2( sampleDistMatrix, Rowv=as.dendrogram(hc),
            symm=TRUE, trace="none", col=colors,
            margins=c(2,10), labCol=FALSE )
