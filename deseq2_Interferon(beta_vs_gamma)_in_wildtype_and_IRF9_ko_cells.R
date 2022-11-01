@@ -1,4 +1,4 @@
-## RNA-seq analysis with DESeq2
+## RNA-seq analysis with DESeq2 (https://doi.org/doi:10.18129/B9.bioc.DESeq2)
 ## Aarathy, Thomas Decker group, Max Perutz Labs
 
 # RNA-seq data from GSE115435
