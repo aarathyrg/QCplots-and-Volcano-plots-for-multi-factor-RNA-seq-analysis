@@ -1,0 +1,8 @@
+# QCplots-and-Volcano-plots-for-multi-factor-RNA-seq-analysis
+######################
+Data obtained from the publication https://doi.org/10.1038/s41467-019-10970-y
+#Experimental setting:
+######################
+#Cells: Bone marrow-derived macrophages obtained from C57BL/6 mice.
+#Wildtype or Irf9−/− cells were stimulated with 10 ng/ml murine IFN-γ(intergeron gamma) or 250 IU/mL of IFN-β(interferon beta) as described in the publication.
+#Three biological replicates
