@@ -141,6 +141,8 @@ ko_gamma<-merge(as.data.frame(ko_gamma), as.data.frame(gene_id_name), by="row.na
 write.csv(ko_gamma,"res_ko_to_wt_gamma.csv")
 ########******ChIP annotated peaks******######
 #annotated peak files from ChIP-seq data
+#contains befiles indicating IRF9 binding 
+#during interferon beta treatment in wildtype cells
 ###############################################
 chip_peaks_ifnb_promoters_irf9 <- read.delim("WT_IRF9_IFNB_R1_peaks.annotatePeaks_PROMOTER_FILTERED.txt",header = T)
 ###############################################
@@ -177,6 +179,8 @@ wt_beta_volcano[which(wt_beta_volcano$Row.names %in% ko_beta_up_volcano$Row.name
 
 ################################################################
 ###***Volcano
+# Here only the plot showing gene regulation by IRF9 during
+#interferon beta response is shown
 ##########################################################
 #interactive plot from plotly
 ##+++++++++plotly++++++++++++###
@@ -194,21 +198,7 @@ p
 
 htmlwidgets::saveWidget(as_widget(p), "plotly_ifnb.html")
 ##############################################
-#Saving tables
 
-Up_genes<-as.data.frame(wt_beta_volcano %>% filter((log2FoldChange>1))%>% filter((padj<0.05)))
-
-write.table(Up_genes,"up_genes_IFNb_geneid.tsv", sep = "\t",row.names = F,col.names = T)
-
-down_genes<-as.data.frame(wt_beta_volcano %>% filter((log2FoldChange< -1))%>% filter((padj<0.05)))
-#irf9 as upregulator
-Up_genes_irf9_upregulated <- as.data.frame(wt_beta_volcano %>% filter((log2FoldChange> 1))%>% filter((padj<0.05))%>%filter(Row.names %in% ko_beta_down_volcano$Row.names ))
-#irf9 as downregulator
-Down_genes_irf9_downregulated <-as.data.frame(wt_beta_volcano %>% filter((log2FoldChange<= -1))%>% filter((padj<0.05))%>%filter(Row.names %in% ko_beta_up_volcano$Row.names ))
-#Considering IRF9 binding from ChIP -seq data
-
-Down_genes_irf9_downregulated_IRF9_bound<-as.data.frame(subset(wt_beta_volcano, group == "i:IFN_down_irf9_downregulated_irf9_bound"))
-Down_genes_irf9_downregulated_IRF9_nonbound<-as.data.frame(subset(wt_beta_volcano, group == "h:IFN_down_irf9_downregulated"))
 
 
 
