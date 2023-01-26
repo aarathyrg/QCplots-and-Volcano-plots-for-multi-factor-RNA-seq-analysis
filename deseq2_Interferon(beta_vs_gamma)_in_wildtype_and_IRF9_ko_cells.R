@@ -9,7 +9,7 @@
 
 # set working directory
 getwd()
-setwd("Dropbox/Aarathy_katrin_proseq/")
+setwd("Dropbox/")
 
 library("DESeq2")
 library("dplyr")
